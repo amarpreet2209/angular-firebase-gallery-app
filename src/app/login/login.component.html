@@ -1,0 +1,23 @@
+<form #loginForm="ngForm">
+  <h1 class="login-title">Log In</h1>
+  <div class="form-group">
+    <label>Email</label>
+    <input class="form-control"
+      #emailControl="ngModel"
+      placeholder="Email"
+      [(ngModel)]="email"
+      name="email" maxlength="70" email required>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control"
+    #passwordControl="ngModel"
+    placeholder="Password"
+    [(ngModel)]="password"
+    name="password" maxlength="70" type="password" required>
+  </div>
+  <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-info btn-lg"
+    (click)="signIn()">Sign In</button>
+    <p *ngIf="msg" class="text-danger">{{msg}}</p>
+</form>
+
